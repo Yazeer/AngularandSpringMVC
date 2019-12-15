@@ -1,0 +1,30 @@
+<h1> Welcome to Book API Service</h1>
+
+<div>
+    <form>
+        <input type = "hidden" name="book.id" />
+        Enter Title: <input type="text" [(ngMode)] = "book.id" name = "title"/><br/>
+        Enter Author: <input type="text" [(ngMode)] = "book.author" name = "author"/><br/>
+
+        <button (click) = "addBook()">Add Book</button>
+        
+
+
+    </form>
+</div>
+<div>
+    <table >
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor = "Let book of books">
+            <td>{{book.id}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td> <button (click)="getBookById(book.id)">Update</button>|  <button (click)="deleteBook(book.id)">Delete</button></td>
+        </tr>
+    </table>
+</div>
